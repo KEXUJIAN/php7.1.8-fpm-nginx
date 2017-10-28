@@ -4,6 +4,7 @@ RUN rm -f buildImage.sh
 COPY . /
 RUN mkdir -p /web \
     && chmod 0777 /web /build.sh \
+    && sync \
     && /build.sh
 USER webadmin
 WORKDIR /web
