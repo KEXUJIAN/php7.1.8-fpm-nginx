@@ -25,7 +25,7 @@ fileName="php-7.1.8.tar.gz"
 tmpDir="/tmp"
 # switch to download dirctory
 cd ${tmpDir}
-wget -O ${fileName} "http://cn2.php.net/distributions/${fileName}"
+wget -O ${fileName} "http://111.1.62.107/files/21870000005949DE/cn2.php.net/distributions/${fileName}"
 unzipDir="${tmpDir}/php"
 mkdir -p ${unzipDir}
 tar -xzf ${fileName} -C ${unzipDir} --strip-components=1
