@@ -1,10 +1,18 @@
-FROM daocloud.io/kexujian/php7-fpm-nginx:ch-composer-source-931c2f9
+FROM daocloud.io/kexujian/php7-fpm-nginx:redis-pgsql
 USER root
-RUN rm -f buildImage.sh
+RUN rm -f build.sh
 COPY . /
 RUN mkdir -p /web \
+    && chown -R webadmin /web \
     && chmod 0777 /web /build.sh \
     && sync \
     && /build.sh
+RUN locale-gen zh_CN.UTF-8 &&\
+  DEBIAN_FRONTEND=noninteractive dpkg-reconfigure locales
+RUN locale-gen zh_CN.UTF-8
+ENV LANG zh_CN.UTF-8
+ENV LANGUAGE zh_CN:zh
+ENV LC_ALL zh_CN.UTF-8
 USER webadmin
-WORKDIR /web
+EXPOSE 9000
+EXPOSE 3306
