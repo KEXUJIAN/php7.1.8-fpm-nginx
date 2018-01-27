@@ -23,7 +23,7 @@ unzipDir="${tmpDir}/php"
 mkdir -p ${unzipDir}
 tar -xzf ${fileName} -C ${unzipDir} --strip-components=1
 
-soapDir="${unzipDir}/ext/SOAP"
+soapDir="${unzipDir}/ext/soap"
 
 # install pgsql extension
 installFn ${soapDir}
